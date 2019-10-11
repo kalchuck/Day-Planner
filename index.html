@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+	<div id="schedule">
+		<ul>
+			<li>hi</li>
+		</ul>
+	</div>
+	<textarea id="notepad">
+        ================================================
+
+
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+
+<title>type example</title>
+
+<script>
+var currEvent = null;
+function getEvtType(evt) {
+  currEvent = evt.type;
+  document.getElementById("Etype").firstChild.nodeValue = currEvent;
+}
+</script>
+</head>
+
+<body
+  onkeydown="getEvtType(event)"
+  onkeyup="getEvtType(event)"
+  onmousedown="getEvtType(event)"
+  onmouseup="getEvtType(event)">
+
+<p>Press any key or click the mouse to get the event type.</p>
+<p>Event type: <span id="Etype">-</span></p>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</textarea>
+	<script type="text/javascript" src="script.js"></script>
+	
+</body>
+</html>
