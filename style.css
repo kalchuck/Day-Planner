@@ -1,38 +1,4 @@
-/* html, body, #notepad {
-	font-family: 'Open sans', sans-serif;
-	margin:.5em;
-	font-size:11pt;
-}
-
-#notepad {
-	font-weight:400;
-	border:0;
-	font-size:1em;
-	height:50em;
-	outline:none;
-}
-#schedule li { 
-	font-weight:300;
-	list-style-type: none;
-	padding:0;
-	margin: 0;
-	background-color: rgb(111, 240, 78);
-	width: 100%;
-}
-#schedule li:nth-child(even) {color: #ccc}
-#schedule li:nth-child(odd) {color: #999}
-
-
-#schedule, #notepad, #schedule ul{
-	display:inline-block;
-	vertical-align:top;
-	padding:0;
-	margin:0;
-}
- */
-
-
- html{
+html{
 	max-width: 100%;
 	height: auto;
   }
@@ -40,92 +6,114 @@
   body {
 	  font-family: 'Open Sans', sans-serif;
 	  font-size: 16px;
-	  line-height: 2;
 	  line-height: 30px;
-  
+	  max-width: 100%;
+	  
 	}
-  
-	textarea{
+	
+	.textarea{
 	  background: whitesmoke;
-	  resize: none;
-	  resize: auto;
+	  /* resize: auto; */
 	  color: #000000;
 	  border: 1px solid black;
-	  padding: 20px;
-	  padding: 11px; 
-	  width: 200px;
-  
+	  line-height: 80px; 
+	  width:100%;
+	  opacity: 75%;
+	  
+	  
 	}
-  
+	
 	.jumbotron {
-  @@ -20,31 +27,49 @@ body {
+	  text-align: center;
+	  background-color: transparent;
+	  color: black;
 	  border-radius: 0;
 	  border-bottom: 10px solid black;
+	  
 	}
-  
-	.planner{
+	/* .planner{
 	  max-width: 100%;
 	  height: auto;
-  
-	}
+	  
+	} */
 	.description{
 	  white-space: pre-wrap;
 	}
-  
-	.time-block{
-	  padding: 20px;
-	  border-radius: 10px;
+	
 	.block-left{
 	  padding: 2px;
-	  margin-left:10%; 
 	  float: left;
-  
-  
+	  width:25%;
+	  
 	}
 	.block-middle{
+	  
 	  padding:2px;
-	  margin-left:5%;
+	  margin-left:2%;
 	  float: left;
+	  width: 50%;
 	}
-  
+	
 	.block-right{
 	  padding:2px;
-	  margin-left: 2%;
+	  /* margin-left: 1%; */
 	  float: left;
-  
+	  
+	  
 	}
 	.row{
 	  white-space: pre-wrap;
-  
-	  height: 10%;
-  
-	  width: 100%;
-  
-  
+	  
 	}
-  
+	
 	.hour {
-	  background-color: #ffffff;
+	  background-color:rgb(234, 235, 215);
 	  color: #000000;
-	  border-top: 2px dashed #000000;
-	  margin-left:5%;
-	  line-height: 82px;
-  
-  
+	  border-top: 2px ridge #000000;
+	  border-top-left-radius: 5px;
+	  border-bottom-left-radius: 5px;
+	  margin-left:70%;
+	  line-height: 42px;
+	  padding: 20px;
+	  text-align: center;
+	  display: flex;
+	  height: auto;
 	}
-  
+	
 	.past {
-  @@ -69,11 +94,7 @@ body {
-	  background-color: #06AED5;
+	  background-color: #d3d3d3;
+	  color: white;
+	}
+	
+	.present {
+	  background-color: #ff6961;
+	  color: white;
+	}
+	
+	.future {
+	  background-color: #77dd77;
+	  color: white;
+	}
+	
+	.saveBtn {
+	  border-left: 1px solid black;
+	  border-top-right-radius: 15px;
+	  border-bottom-right-radius: 15px;
+	  background-color: rgb(228, 114, 48);
 	  color: white;
 	  text-align: center;
-  
 	  padding:25px
   
 	}
+	.saveBtn:hover {
+	  border-left: 1px solid black;
+	  border-top-right-radius: 15px;
+	  border-bottom-right-radius: 15px;
+	  background-color:green;
+	  color: white;
+	  text-align: center;
+	  padding:25px
   
-	.saveBtn i:hover {
-	  font-size: 20px;
-	  transition: all .3s ease-in-out;
 	}
+	
   

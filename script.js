@@ -1,57 +1,3 @@
-// // thanks diveintohtml5.info
-// var notepad = document.getElementById("notepad");
-// var schedule = document.getElementById("schedule");
-// console.log(schedule.innerHTML);
-// var note;
-// window.onkeyup = save;
-
-// function supportsLocalStorage() {
-//     return ('localStorage' in window) && window['localStorage'] !== null;
-// }
-
-// function save() {
-//     if (!supportsLocalStorage()) { return false; }
-// 		note = notepad.value;
-// 		console.log(note);
-// 		localStorage["stored.note"] =  note;
-//     return true;
-// }
-
-// function resume() {
-//     if (!supportsLocalStorage()) { return false; }
-// 		note = localStorage["stored.note"];
-// 		if (!note) { return false; }
-// 		notepad.value = note;
-// 		return true;
-// }
-
-// function displayTimeList() {
-// 	var times ='';
-// 	for (i = 7; i<=9;i++){
-// 		times += '<li>0'+parseInt(i)+':00</li>';
-// 		times += '<li>0'+parseInt(i)+':30</li>';
-		
-// 	}
-// 	for (i = 10; i<=24;i++){
-// 		times += '<li>'+parseInt(i)+':00</li>';
-// 		times += '<li>'+parseInt(i)+':30</li>';
-		
-// 	}
-// 	var timeTable = '<ul>'+times+'</ul';
-// 	return timeTable
-	
-// }
-// function init(){
-	
-// 	schedule.innerHTML = displayTimeList();
-
-//     if (!resume()) {
-//     }
-// }
-
-// init();
-
-
 // establish variables for the time blocks in the Day Planner
 
 $(document).ready(function() {
@@ -63,28 +9,30 @@ $(document).ready(function() {
 
     var textBlockEl = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
+    var btnEl = ["b1", "b2", "b3", "b4", "b5", "b6", "b7", "b8", "b9"];
+
+    var input = [];
+    
     var calender = $("<div>");
     $("#planner").append(calender);
-
     
-    
-
+      
     function getTime(){
         console.log(time);
-
+        
         var date=$("<div>");
         date.append("#currentDay");
         $("#currentDay").text(time);
     }
-
+    
     function timeBlocks(){
         for (var i = 0; i < appointments.length; i++) {
-         
+            
             var timeBlock = $("<div>");         
             
             timeBlock.addClass("row hour");
-
-            timeBlock.attr("data-hour", appointments[i]);
+            
+            timeBlock.attr("name", appointments[i]);
             
             
             timeBlock.text(appointments[i]);
@@ -96,33 +44,52 @@ $(document).ready(function() {
     }
     function textBlocks(){
         for (var i = 0; i < textBlockEl.length; i++) {
-         
-            var textBlock = $("<textarea>");   
             
-            textBlock.addClass("row description");
-
-            textBlock.attr("data-text", textBlockEl[i]);          
-                        
+            var textBlock = $("<input>");
+            
+            // var textId = $("id", appointment[i]);
+            
+            textBlock.addClass("row textarea");
+            
+            textBlock.attr("data-index",i);   
+            
+            textBlock.text(input,"");
+                      
             $("#text").append(textBlock);
+
+            // need to add input from textBlock into localStorage.
+            $("#saveButton").on("click", function(){
+                localStorage.setItem("input.text", JSON.parse("input"));
+        
+                
+            });
         }
+            
     }
+
+    
     function buttonBlocks(){
-        for (var i = 0; i < textBlockEl.length; i++) {
+        for (var i = 0; i < btnEl.length; i++) {
          
             var button = $("<button>");
 
             button.addClass("row saveBtn");
 
-            button.attr("data-save", textBlockEl[i]);   
+            button.attr("id", btnEl[i]);   
             
             button.text("Save");
-                        
+
             $("#saveButton").append(button);
         }
+        
     }
+
+
    
     
     console.log(appointments);
+    console.log(localStorage);
+    console.log
     timeBlocks();
     textBlocks();
     buttonBlocks();
