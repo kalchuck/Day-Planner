@@ -24,27 +24,57 @@
 
   <body>
     <header class="jumbotron">
-      <h1 class="display-3">Work Day Scheduler</h1> <br> <br>
+      <h1 class="display-3">Work Day Scheduler</h1>
       <p class="lead">A simple calendar app for scheduling your work day</p>
       <p id="currentDay" class="lead"></p>
     </header>
-    <div class="planner">
-
-      <!-- TimeBlocks go here -->
-      <div class="block-left">
-        <div id="hr">
-        </div> 
-      </div>
-      <div class="block-middle">
-        <div id="text">
-        </div> 
-      </div>
-      <div class="block-right">
-        <div id="saveButton">         
-        </div>
-      </div>
+    <div class="container">
+      <!-- Timeblocks go here -->
+      <table class="table table-hover table-dark">
+        <tbody id="tableTime">
+          <tr id="testSize">
+            <th scope="row" id="first">9 am</th><td id="time1"><textarea id ="fill1" class="form-control"  rows="1"  ></textarea>
+            <input class="btn btn-primary saveBtn col-xs-12 col-s-2 col-md-3 " type="submit" id="cell1" value="Save"></td>
+            
+          </tr>
+          <tr>
+            <th scope="row" >10 am</th><td id="time2"><textarea id ="fill2" class="form-control" rows="1" ></textarea>
+            <input class="btn btn-primary saveBtn col-xs-12 col-s-2 col-md-3" type="submit" id="cell2" value="Save"></td>
+            
+          </tr>
+          <tr >
+            <th scope="row" >11 am</th><td id="time3"><textarea id ="fill3" class="form-control" rows="1" ></textarea>
+            <input class="btn btn-primary saveBtn col-xs-12 col-s-2 col-md-3" type="submit" id="cell3" value="Save"></td>
+          </tr>
+          <tr>
+            <th scope="row" >12 pm</th><td id="time4"><textarea id ="fill4" class="form-control" rows="1" ></textarea>
+            <input class="btn btn-primary saveBtn col-xs-12 col-s-2 col-md-3" type="submit" id="cell4" value="Save"></td>
+          </tr>
+          <tr>
+            <th scope="row" >1 pm</th><td id="time5"><textarea id ="fill5" class="form-control" rows="1" ></textarea>
+            <input class="btn btn-primary saveBtn col-xs-12 col-s-2 col-md-3" type="submit" id="cell5" value="Save"></td>
+          </tr>
+          <tr>
+            <th scope="row" >2 pm</th><td id="time6"><textarea id ="fill6" class="form-control" rows="1" ></textarea>
+            <input class="btn btn-primary saveBtn col-xs-12 col-s-2 col-md-3" type="submit" id="cell6" value="Save"></td>
+          </tr>
+          <tr>
+            <th scope="row" >3 pm</th><td id="time7"><textarea id ="fill7" class="form-control" rows="1" ></textarea>
+            <input class="btn btn-primary saveBtn col-xs-12 col-s-2 col-md-3" type="submit" id="cell7" value="Save"></td>
+          </tr>
+          <tr>
+            <th scope="row" >4 pm</th><td id="time8"><textarea id ="fill8" class="form-control" rows="1" ></textarea>
+            <input class="btn btn-primary saveBtn col-xs-12 col-s-2 col-md-3" type="submit" id="cell8" value="Save"></td>
+          </tr>
+          <tr>
+            <th scope="row">5 pm</th><td id="time9"><textarea id ="fill9" class="form-control" rows="1" ></textarea>
+            <input class="btn btn-primary saveBtn col-xs-12 col-s-2 col-md-3" type="submit" id="cell9" value="Save"></td>
+          </tr>
+          <tr>
+        </tbody>
+      </table>
     </div>
-           
+    
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="script.js"></script>

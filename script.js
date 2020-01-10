@@ -1,97 +1,77 @@
-// establish variables for the time blocks in the Day Planner
+//global variables
+var now = moment();
 
-$(document).ready(function() {
-    console.log( "ready!" )
-    
-    var time = moment().format("dddd, MMMM Do YYYY");
+//a function that displays and updates the time dynamically (the function call is built into the setInterval command)
+var update = function() {
+    $("#currentDay").html(moment().format('MMMM Do YYYY, h:mm:ss a'));
+}
+setInterval(update, 1000);
 
-    var appointments = ["9am", "10am", "11am", "12pm", "1pm", "2pm","3pm","4pm","5pm"];
+//a set of click events tied to the individual buttons that save the text in the textarea to local storage
+$("#cell1").click(function (){
+    localStorage.one = ($("#fill1").val());
+})
+$("#cell2").click(function (){
+    localStorage.two = ($("#fill2").val());
+})
+$("#cell3").click(function (){
+    localStorage.three = ($("#fill3").val());
+})
+$("#cell4").click(function (){
+    localStorage.four = ($("#fill4").val());
+})
+$("#cell5").click(function (){
+    localStorage.five = ($("#fill5").val());
+})
+$("#cell6").click(function (){
+    localStorage.six = ($("#fill6").val());
+})
+$("#cell7").click(function (){
+    localStorage.seven = ($("#fill7").val());
+})
+$("#cell8").click(function (){
+    localStorage.eight = ($("#fill8").val());
+})
+$("#cell9").click(function (){
+    localStorage.nine = ($("#fill9").val());
+})
 
-    var textBlockEl = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+//a function that will get called on page load that imports the data from local storage into the text field
+ var remember = function() {
+    var refill1 = localStorage.one;
+    $("#fill1").val(refill1);
+    var refill2 = localStorage.two;
+    $("#fill2").val(refill2);
+    var refill3 = localStorage.three;
+    $("#fill3").val(refill3);
+    var refill4 = localStorage.four;
+    $("#fill4").val(refill4);
+    var refill5 = localStorage.five;
+    $("#fill5").val(refill5);
+    var refill6 = localStorage.six;
+    $("#fill6").val(refill6);
+    var refill7 = localStorage.seven;
+    $("#fill7").val(refill7);
+    var refill8 = localStorage.eight;
+    $("#fill8").val(refill8);
+    var refill9 = localStorage.nine;
+    $("#fill9").val(refill9);
+}
 
-    var btnEl = ["b1", "b2", "b3", "b4", "b5", "b6", "b7", "b8", "b9"];
-
-    var input = [];
-    
-    var calender = $("<div>");
-    $("#planner").append(calender);
-    
-      
-    function getTime(){
-        console.log(time);
-        
-        var date=$("<div>");
-        date.append("#currentDay");
-        $("#currentDay").text(time);
+//a function that loops through the textfields, compares them to the actual time, and assigns them the appropriate class depending on time of day
+function colors() {
+    var t = moment().format("H");
+    var textFields = ["#time1", "#time2", "#time3", "#time4", "#time5", "#time6", "#time7", "#time8", "#time9"];
+    for (var i=0; i<textFields.length; i++) {
+        var compareTime = i+9;
+    if (t<compareTime) {
+        $(textFields[i]).attr("class", "future");
+    } else if (t > compareTime) {
+        $(textFields[i]).attr("class", "past");
+    } else $(textFields[i]).attr("class", "present");
     }
-    
-    function timeBlocks(){
-        for (var i = 0; i < appointments.length; i++) {
-            
-            var timeBlock = $("<div>");         
-            
-            timeBlock.addClass("row hour");
-            
-            timeBlock.attr("name", appointments[i]);
-            
-            
-            timeBlock.text(appointments[i]);
+}
 
-            
-            $("#hr").append(timeBlock);
-            
-        }
-    }
-    function textBlocks(){
-        for (var i = 0; i < textBlockEl.length; i++) {
-            
-            var textBlock = $("<input>");
-            
-            // var textId = $("id", appointment[i]);
-            
-            textBlock.addClass("row textarea");
-            
-            textBlock.attr("data-index",i);   
-            
-            textBlock.text(input,"");
-                      
-            $("#text").append(textBlock);
-
-            // need to add input from textBlock into localStorage.
-            $("#saveButton").on("click", function(){
-                localStorage.setItem("input.text", JSON.parse("input"));
-        
-                
-            });
-        }
-            
-    }
-
-    
-    function buttonBlocks(){
-        for (var i = 0; i < btnEl.length; i++) {
-         
-            var button = $("<button>");
-
-            button.addClass("row saveBtn");
-
-            button.attr("id", btnEl[i]);   
-            
-            button.text("Save");
-
-            $("#saveButton").append(button);
-        }
-        
-    }
-
-
-   
-    
-    console.log(appointments);
-    console.log(localStorage);
-    console.log
-    timeBlocks();
-    textBlocks();
-    buttonBlocks();
-    getTime();
-});
+//load function on page load
+colors();
+remember();
